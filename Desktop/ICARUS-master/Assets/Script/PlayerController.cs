@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     const int BOOST_COOL_TIME = 5;//5秒間のクールタイム
 
     private GameObject _player;
-    private GameObject _ground;
     private GameObject _bullet;
 
     private Rigidbody _rb_player;

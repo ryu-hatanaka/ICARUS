@@ -9,7 +9,7 @@ public class CreateObject : MonoBehaviour
     // Start is called before the first frame update
     [ SerializeField ] GameObject _player;
     [ SerializeField ] GameObject _ground;
-    //[ SerializeField ] GameObject _machinegun;
+    [ SerializeField ] GameObject _machinegun;
     [ SerializeField ] GameObject _bullet;
     public GameObject _camera;
     void Start( ) {
@@ -18,7 +18,7 @@ public class CreateObject : MonoBehaviour
         PlayerController p_contrl = player.GetComponent< PlayerController >( );
         CameraControlller cam_player = _camera.GetComponent< CameraControlller >( );
         ShootingSystem s_system = _bullet.GetComponent< ShootingSystem >( );
-        //GameObject machinegun = Instantiate( _machinegun );//‰¼
+        GameObject machinegun = Instantiate( _machinegun );//‰¼
         p_contrl.SetPlayerObject( player );
         s_system.SetPlyaerObject( player );
         cam_player.SetPlayerObject( player );

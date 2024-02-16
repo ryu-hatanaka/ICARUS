@@ -8,8 +8,7 @@ public class ShootingSystem : MonoBehaviour {
     [ SerializeField ] GameObject _bullet;
     private GameObject _bullet_obj;
     private GameObject _player;
-    private Transform _fire_point;
-    const float MOVE_SPEED = 50f;
+    const float MOVE_SPEED = 25f;
     const float SHOOTING_TIME = 0.05f;
     const float INJECTIVE_TIME = 0.5f;
     float _time;
@@ -42,11 +41,11 @@ public class ShootingSystem : MonoBehaviour {
             Move( );
         }
     }
-    //void OnCollisionEnter( Collision collision ) {
-    //    if ( collision.gameObject.CompareTag( "enemy" ) ) {//‰¼
-    //        Destroy( _bullet_obj );
-    //    }
-    //}
+    void OnCollisionEnter( Collision collision ) {
+        if ( collision.gameObject.CompareTag( "enemy" ) ) {//‰¼
+            Destroy( _bullet_obj );
+        }
+    }
     private void ShootingModeType( ) {
         switch ( GetWeaponType( ) ) {
             case ShootingType.RAPID_FIRE:
@@ -88,7 +87,6 @@ public class ShootingSystem : MonoBehaviour {
     }
 
     public void Move( ) {
-        //_bullet_obj.transform.position += new Vector3 ( 0f, 0f, MOVE_SPEED * Time.deltaTime );
         Rigidbody rb_bullet = _bullet.GetComponent< Rigidbody >( );
         rb_bullet.velocity = _player.transform.forward * -MOVE_SPEED;
     }

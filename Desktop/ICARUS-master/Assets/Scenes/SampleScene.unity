@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 8197016421384548106, guid: 390784922f9bb0841be3216d68bdaefb, type: 3}
   _ground: {fileID: 6491992860388673246, guid: 5d7a211c9cb561d4ba7fe183f2202c02, type: 3}
+  _machinegun: {fileID: 2206455418824436597, guid: c61862cfbc2d0974198f1cb9aaa81c05, type: 3}
   _bullet: {fileID: 4139816846946696086, guid: dba2375cd26481c408d3f2d9df6407e3, type: 3}
   _camera: {fileID: 963194225}
 --- !u!1 &705507993
