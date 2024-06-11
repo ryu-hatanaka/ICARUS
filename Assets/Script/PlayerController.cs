@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+<<<<<<< HEAD
     const int PLAYER_SPEED = 10;   //プレイヤー本来の速度
     const int BOOST_SPEED = 50;   //ブースト時の速度
     const float BOOST_TIME = 3.5f;     //３.５秒間ブーストタイム
@@ -36,6 +37,39 @@ private GameObject _player;
         _speed = PLAYER_SPEED * Time.deltaTime;
         _boost_time = 0;
         this.transform.Rotate( new Vector3( 0f, 0f, 10f ) );
+=======
+    const int PLAYER_SPEED = 2;   //プレイヤー本来の速度
+    const int BOOST_SPEED = 10;   //ブースト時の速度
+    const float BOOST_TIME = 3.5f;     //３.５秒間ブーストタイム
+    const int BOOST_COOL_TIME = 5;//5秒間のクールタイム
+
+    private GameObject _player;
+    private GameObject _ground;
+
+    public Rigidbody _rb_player;
+    public LayerMask _ground_layer;
+
+    bool _grounded;
+    bool _boost_change;
+    bool _boost_form_change;
+    bool _sense_button;
+
+    float _speed;
+    float _boost_time;
+    float _boost_cool_time;
+    public void SetPlayerObject( GameObject obj ) {
+        _player = obj;
+    }
+
+    public void SetGrondObject( GameObject obj ) {
+        _ground = obj;
+    }
+    void Start( ) { //初期化
+        _rb_player = GetComponent< Rigidbody >( );
+        _speed = PLAYER_SPEED * Time.deltaTime;
+        _boost_time = 0;
+
+>>>>>>> 70039e1e2c5d9f4db011f012e3dc7b498c40ffdd
     }
 
     void Update( ) {
@@ -43,8 +77,13 @@ private GameObject _player;
             SpeedBoost( );
             Move( );
             JumpControl( );
+<<<<<<< HEAD
             ChargeBoost( );
         }
+=======
+        }
+        
+>>>>>>> 70039e1e2c5d9f4db011f012e3dc7b498c40ffdd
     }
 
     void Move( ) {
@@ -71,6 +110,7 @@ private GameObject _player;
     }
 
     void JumpControl( ) {
+<<<<<<< HEAD
         if ( Input.GetButtonDown( "Jump" ) && _jumping ) {
             Jump( );
         }
@@ -88,6 +128,15 @@ private GameObject _player;
 
     void Jump( ) {
         _rb_player.AddForce( Vector3.up * JUMP_POWER, ForceMode.Impulse );
+=======
+        if ( Input.GetButtonDown( "Jump" ) ) {
+            Jump( );
+        }
+    }
+    
+    void Jump( ) {
+        _rb_player.AddForce( Vector3.up * 5f, ForceMode.Impulse );
+>>>>>>> 70039e1e2c5d9f4db011f012e3dc7b498c40ffdd
     }
 
     void SpeedBoost( ) {
@@ -115,6 +164,7 @@ private GameObject _player;
             }
         }
     }
+<<<<<<< HEAD
     float _charge_boost_time;
     float _charge_cool_time;
     bool _charge_form_change;
@@ -147,6 +197,13 @@ private GameObject _player;
                 _charge_form_change = false;
             }
         }
+=======
+
+    
+
+    public GameObject GetPlayerObject( ) {
+        return _player;
+>>>>>>> 70039e1e2c5d9f4db011f012e3dc7b498c40ffdd
     }
 
     bool IsButtonShift( ) {
