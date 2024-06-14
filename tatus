@@ -1,0 +1,37 @@
+[33mcommit 9be5101856c6dfb33f028463110634460eefd5b4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: 2f946564 388e4491
+Author: norokukun <kazuma.ohashi.0084@gmail.com>
+Date:   Tue Jun 11 20:24:36 2024 +0900
+
+    Merge branch 'master' of https://github.com/ryu-hatanaka/ICARUS
+
+[33mcommit 2f946564d5cb912a42361b543ba9ba1c6f9d07e0[m
+Merge: c34590f2 70039e1e
+Author: norokukun <kazuma.ohashi.0084@gmail.com>
+Date:   Tue Jun 11 20:21:35 2024 +0900
+
+    Commit
+
+[33mcommit c34590f2b6e76d7b28e7712746db47c417a10dd8[m
+Author: norokukun <kazuma.ohashi.0084@gmail.com>
+Date:   Thu Jun 6 03:20:11 2024 +0900
+
+    6/6
+
+[33mcommit 388e449167c81588ec4beb6739307c5e2e289889[m
+Author: norokukun <kazuma.ohashi.0084@gmail.com>
+Date:   Fri Feb 16 12:56:54 2024 +0900
+
+    テストSecond
+
+[33mcommit 3da3ea8f88e10096d4051d30e6911a47f1671285[m
+Author: norokukun <kazuma.ohashi.0084@gmail.com>
+Date:   Fri Feb 9 14:33:12 2024 +0900
+
+    テスト
+
+[33mcommit 70039e1e2c5d9f4db011f012e3dc7b498c40ffdd[m
+Author: Hatanaka <moairyunosuke@gmail.com>
+Date:   Mon Dec 4 23:11:03 2023 +0900
+
+    init commit
