@@ -1,5 +1,3 @@
-<<<<<<< HEAD
+
 C:\Users\uesr\Desktop\ICARUS-master
-=======
-C:\Users\uesr\Desktop\ProjectID(Unity)
->>>>>>> 70039e1e2c5d9f4db011f012e3dc7b498c40ffdd
+

@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-<<<<<<< HEAD
+
 using System.Threading;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -13,11 +13,11 @@ public class CameraControlller : MonoBehaviour
     private float polarAngle = 90.0f;
     private float azimuthalAngle = 90.0f;
     private float minPolarAngle = 5.0f;
-    private float maxPolarAngle = 180.0f;//ƒJƒƒ‰YŽ² +•ûŒü
+    private float maxPolarAngle = 180.0f;//ï¿½Jï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ +ï¿½ï¿½ï¿½ï¿½
 
-    public float sensitivity = 5.0f;  // ƒ}ƒEƒXŠ´“x
-    public float minYAngle = -90.0f;  // ƒJƒƒ‰‚ÌÅ¬Šp“x
-    public float maxYAngle = 90.0f;   // ƒJƒƒ‰‚ÌÅ‘åŠp“x
+    public float sensitivity = 5.0f;  // ï¿½}ï¿½Eï¿½Xï¿½ï¿½ï¿½x
+    public float minYAngle = -90.0f;  // ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ÌÅï¿½ï¿½pï¿½x
+    public float maxYAngle = 90.0f;   // ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ÌÅ‘ï¿½pï¿½x
 
     private float rotationX = 0.0f;
 
@@ -27,31 +27,13 @@ public class CameraControlller : MonoBehaviour
         if ( transform.parent != null ) {
             _player = transform.parent.gameObject;
         }
-=======
-using UnityEngine;
 
-public class CameraControlller : MonoBehaviour
-{
-    [ SerializeField ] Camera _camera;
-    private GameObject _player;
-    bool _perspective_change;
-
-    public float mouseSensitivity = 100f; // ƒ}ƒEƒXŠ´“x
-    float xRotation = 0f;
-
-    Vector3 offset = new Vector3( 0f, 2f, -5f );
-
-    void Start( ) {
-        _perspective_change = false;
-        PlayerController p_control = GetComponent< PlayerController >( );
-        _player = p_control.GetPlayerObject( );
->>>>>>> 70039e1e2c5d9f4db011f012e3dc7b498c40ffdd
     }
 
     // Update is called once per frame
     void Update( ) {
-<<<<<<< HEAD
-        //ƒJƒƒ‰‚ÌŽ‹“_Ø‚è‘Ö‚¦@ƒfƒoƒbƒO—p
+
+        //ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ÌŽï¿½ï¿½_ï¿½Ø‚ï¿½Ö‚ï¿½ï¿½@ï¿½fï¿½oï¿½bï¿½Oï¿½p
         if ( Input.GetKey( KeyCode.Alpha1 ) ) {
             _perspective_change = !_perspective_change;
         }
@@ -61,7 +43,7 @@ public class CameraControlller : MonoBehaviour
         }
         
     }
-    //ŠeŽ‹“_‚ÌƒvƒƒOƒ‰ƒ€
+    //ï¿½eï¿½ï¿½ï¿½_ï¿½Ìƒvï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½
     void ChangePerspective( ) {
         if ( _perspective_change ) {
             FirstPersonCameraMove( );
@@ -79,7 +61,7 @@ public class CameraControlller : MonoBehaviour
         updatePosition( lookAtPos );
         transform.LookAt( lookAtPos );
     }
-    //ƒJƒƒ‰‚ÌŒX‚«‚È‚Ç
+    //ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ÌŒXï¿½ï¿½ï¿½È‚ï¿½
     void updateAngle(float x, float y)
     {
         x = azimuthalAngle - x * sensitivity;
@@ -104,40 +86,6 @@ public class CameraControlller : MonoBehaviour
         rotationX = Mathf.Clamp(rotationX, minYAngle, maxYAngle );
         transform.rotation = Quaternion.Euler( rotationX, _player.transform.eulerAngles.y, 0.0f );
         transform.position = _player.transform.position;
-=======
-        if ( Input.GetKey( KeyCode.Alpha1 ) ) {
-            _perspective_change = !_perspective_change;
-        }
-        ChangePerspective( );
-        MoveTheMouse( );
-    }
 
-    void ChangePerspective( ) {
-        if ( _perspective_change ) {
-            FirstPersonPerspective( );
-        } else {
-            ThirdPersonPerspective( );
-        }
-    }
-    void ThirdPersonPerspective( ) {
-        if ( _player != null ) {
-            _camera.transform.position = _player.transform.position + offset;
-        }
-    }
-
-    void FirstPersonPerspective( ) {
-        _camera.transform.position = _player.transform.position;
-    }
-
-    void MoveTheMouse( ) {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
-        _player.transform.Rotate( Vector3.up * mouseX );
-
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // ã‰º‚Ì‰ñ“]Šp“x‚ð§ŒÀ
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
->>>>>>> 70039e1e2c5d9f4db011f012e3dc7b498c40ffdd
     }
 }

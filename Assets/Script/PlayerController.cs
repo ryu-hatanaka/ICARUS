@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-<<<<<<< HEAD
-    const int PLAYER_SPEED = 10;   //ƒvƒŒƒCƒ„[–{—ˆ‚Ì‘¬“x
-    const int BOOST_SPEED = 50;   //ƒu[ƒXƒg‚Ì‘¬“x
-    const float BOOST_TIME = 3.5f;     //‚R.‚T•bŠÔƒu[ƒXƒgƒ^ƒCƒ€
-    const int BOOST_COOL_TIME = 5;//5•bŠÔ‚ÌƒN[ƒ‹ƒ^ƒCƒ€
-    const float JUMP_POWER = 50f; //ƒWƒƒƒ“ƒv‚Ì‚‚³
+
+    const int PLAYER_SPEED = 10;   //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½{ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½x
+    const int BOOST_SPEED = 50;   //ï¿½uï¿½[ï¿½Xï¿½gï¿½ï¿½ï¿½Ì‘ï¿½ï¿½x
+    const float BOOST_TIME = 3.5f;     //ï¿½R.ï¿½Tï¿½bï¿½Ôƒuï¿½[ï¿½Xï¿½gï¿½^ï¿½Cï¿½ï¿½
+    const int BOOST_COOL_TIME = 5;//5ï¿½bï¿½Ô‚ÌƒNï¿½[ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½
+    const float JUMP_POWER = 50f; //ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Ìï¿½ï¿½ï¿½
     const float PREPARATION_TIME = 1.5f;
     const float CHARGE_BOOST_MAX_TIME = 3.5f;
     const float CHARGE_COOL_TIME = 10f;
@@ -31,45 +31,13 @@ private GameObject _player;
     float _boost_time;
     float _boost_cool_time;
     
-    void Start( ) { //‰Šú‰»
+    void Start( ) { //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         _player = GameObject.Find( "Player" );
         _rb_player = _player.GetComponent< Rigidbody >( );
         _speed = PLAYER_SPEED * Time.deltaTime;
         _boost_time = 0;
         this.transform.Rotate( new Vector3( 0f, 0f, 10f ) );
-=======
-    const int PLAYER_SPEED = 2;   //ƒvƒŒƒCƒ„[–{—ˆ‚Ì‘¬“x
-    const int BOOST_SPEED = 10;   //ƒu[ƒXƒg‚Ì‘¬“x
-    const float BOOST_TIME = 3.5f;     //‚R.‚T•bŠÔƒu[ƒXƒgƒ^ƒCƒ€
-    const int BOOST_COOL_TIME = 5;//5•bŠÔ‚ÌƒN[ƒ‹ƒ^ƒCƒ€
 
-    private GameObject _player;
-    private GameObject _ground;
-
-    public Rigidbody _rb_player;
-    public LayerMask _ground_layer;
-
-    bool _grounded;
-    bool _boost_change;
-    bool _boost_form_change;
-    bool _sense_button;
-
-    float _speed;
-    float _boost_time;
-    float _boost_cool_time;
-    public void SetPlayerObject( GameObject obj ) {
-        _player = obj;
-    }
-
-    public void SetGrondObject( GameObject obj ) {
-        _ground = obj;
-    }
-    void Start( ) { //‰Šú‰»
-        _rb_player = GetComponent< Rigidbody >( );
-        _speed = PLAYER_SPEED * Time.deltaTime;
-        _boost_time = 0;
-
->>>>>>> 70039e1e2c5d9f4db011f012e3dc7b498c40ffdd
     }
 
     void Update( ) {
@@ -77,13 +45,9 @@ private GameObject _player;
             SpeedBoost( );
             Move( );
             JumpControl( );
-<<<<<<< HEAD
             ChargeBoost( );
         }
-=======
-        }
-        
->>>>>>> 70039e1e2c5d9f4db011f012e3dc7b498c40ffdd
+
     }
 
     void Move( ) {
@@ -110,7 +74,7 @@ private GameObject _player;
     }
 
     void JumpControl( ) {
-<<<<<<< HEAD
+
         if ( Input.GetButtonDown( "Jump" ) && _jumping ) {
             Jump( );
         }
@@ -128,28 +92,20 @@ private GameObject _player;
 
     void Jump( ) {
         _rb_player.AddForce( Vector3.up * JUMP_POWER, ForceMode.Impulse );
-=======
-        if ( Input.GetButtonDown( "Jump" ) ) {
-            Jump( );
-        }
-    }
-    
-    void Jump( ) {
-        _rb_player.AddForce( Vector3.up * 5f, ForceMode.Impulse );
->>>>>>> 70039e1e2c5d9f4db011f012e3dc7b498c40ffdd
+
     }
 
     void SpeedBoost( ) {
         if ( IsButtonShift( ) ) {
              _boost_change = true;
-        } //ƒu[ƒXƒgŠJn
+        } //ï¿½uï¿½[ï¿½Xï¿½gï¿½Jï¿½n
         if ( _boost_change ) {
-            if ( !IsBoostControl( ) ) { //‚R•bˆÈ‰º‚È‚ç‘¬“x‚ğ‚ ‚°‚é
+            if ( !IsBoostControl( ) ) { //ï¿½Rï¿½bï¿½È‰ï¿½ï¿½È‚ç‘¬ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 _speed = BOOST_SPEED * Time.deltaTime;
-                if ( !_sense_button ) { //‰½‚àƒ{ƒ^ƒ“‚ğ‰Ÿ‚³‚ê‚Ä‚È‚¢‚ÍWKey‚ğ‰Ÿ‚³‚ê‚Ä‚é”»’è
+                if ( !_sense_button ) { //ï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚È‚ï¿½ï¿½ï¿½ï¿½ï¿½WKeyï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚é”»ï¿½ï¿½
                     _player.transform.Translate( new Vector3( 0, 0, _speed ) );
                 }
-            } else { //‚R•b‚½‚Á‚½‚ç‘¬“x‚ğ–ß‚µAƒu[ƒXƒg‚ğI—¹‚³‚¹‚éB‚»‚µ‚ÄƒN[ƒ‹ƒ^ƒCƒ€‚ªn‚Ü‚é
+            } else { //ï¿½Rï¿½bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç‘¬ï¿½xï¿½ï¿½ß‚ï¿½ï¿½Aï¿½uï¿½[ï¿½Xï¿½gï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ÄƒNï¿½[ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½nï¿½Ü‚ï¿½
                 _speed = PLAYER_SPEED * Time.deltaTime;
                 _boost_change = false;
                 _boost_form_change = true;
@@ -157,31 +113,31 @@ private GameObject _player;
            }
         }
         if ( _boost_form_change ) {
-            if ( IsBoostCoolControl( ) ){ //ƒN[ƒ‹ƒ^ƒCƒ€‚Ì‚T•b‚½‚Á‚½‚çAƒu[ƒXƒg‚ğÄ“x‰Â”\‚É‚·‚éB‚»‚µ‚ÄƒN[ƒ‹ƒ^ƒCƒ€‚àŒ³‚É–ß‚·
+            if ( IsBoostCoolControl( ) ){ //ï¿½Nï¿½[ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½Ì‚Tï¿½bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½uï¿½[ï¿½Xï¿½gï¿½ï¿½ï¿½Ä“xï¿½Â”\ï¿½É‚ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ÄƒNï¿½[ï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É–ß‚ï¿½
                 _boost_time = 0;
                 _boost_cool_time = 0;
                 _boost_form_change = false;
             }
         }
     }
-<<<<<<< HEAD
+
     float _charge_boost_time;
     float _charge_cool_time;
     bool _charge_form_change;
     void ChargeBoost( ) {
-        //‰ü‘P‚·‚é‰ÓŠ«
-        //”­“®ŠÔ‚ªÅ‘å3.5•b@©“r’†‚ÅƒLƒƒƒ“ƒZƒ‹‚·‚é‚±‚Æ‚ª‰Â”\‚Ìˆ×AÅ‘å‚Æ‚¢‚¤‘‚«•û‚ğ‚µ‚Ä‚¢‚é
-        //ã‚Å‘‚¢‚Ä‚¢‚é‚æ‚¤‚É“r’†‚ÅƒLƒƒƒ“ƒZƒ‹o—ˆ‚é‚æ‚¤‚É‚·‚é
-        //ˆê‰ñ‰Ÿ‚µ‚½‚¾‚¯‚Åì“®‚·‚é‚æ‚¤‚Èd—l‚à‚ ‚Á‚½‚©‚ç‚»‚ê‚ğì¬
+        //ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½ï¿½Óï¿½ï¿½ï¿½
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½Å‘ï¿½3.5ï¿½bï¿½@ï¿½ï¿½ï¿½rï¿½ï¿½ï¿½ÅƒLï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½Æ‚ï¿½ï¿½Â”\ï¿½Ìˆ×Aï¿½Å‘ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
+        //ï¿½ï¿½Åï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½æ‚¤ï¿½É“rï¿½ï¿½ï¿½ÅƒLï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½
+        //ï¿½ï¿½ñ‰Ÿ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Åì“®ï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½Èdï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç‚»ï¿½ï¿½ï¿½ï¿½ì¬
         if ( Input.GetKey( KeyCode.W ) && Input.GetKey( KeyCode.LeftControl ) ) {
             _preparation_time += Time.deltaTime;
             if ( _preparation_time > PREPARATION_TIME ) {
                 _charge_boost_time += Time.deltaTime ;
                 if ( _charge_boost_time < CHARGE_BOOST_MAX_TIME ) {
-                    Debug.Log( "ƒXƒs[ƒhUP" );
+                    Debug.Log( "ï¿½Xï¿½sï¿½[ï¿½hUP" );
                     _speed = BOOST_SPEED * 2 * Time.deltaTime;
                 } else {
-                    Debug.Log( "ƒu[ƒXƒgI—¹" );
+                    Debug.Log( "ï¿½uï¿½[ï¿½Xï¿½gï¿½Iï¿½ï¿½" );
                     _speed = PLAYER_SPEED * Time.deltaTime;
                     _charge_form_change = true;
                 }
@@ -190,20 +146,14 @@ private GameObject _player;
         if ( _charge_form_change ) {
             _charge_cool_time += Time.deltaTime;
             if ( _charge_cool_time > CHARGE_COOL_TIME ) {
-                Debug.Log( "ƒu[ƒXƒgŠJn" );
+                Debug.Log( "ï¿½uï¿½[ï¿½Xï¿½gï¿½Jï¿½n" );
                 _charge_boost_time = 0;
                 _preparation_time = 0;
                 _charge_cool_time = 0;
                 _charge_form_change = false;
             }
         }
-=======
 
-    
-
-    public GameObject GetPlayerObject( ) {
-        return _player;
->>>>>>> 70039e1e2c5d9f4db011f012e3dc7b498c40ffdd
     }
 
     bool IsButtonShift( ) {
