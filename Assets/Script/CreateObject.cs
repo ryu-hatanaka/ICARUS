@@ -12,6 +12,8 @@ public class CreateObject : MonoBehaviour
 
     private GameObject _machinegun;
     public GameObject _camera;
+
+
     void Start( ) {
         CameraControlller cam_player = _camera.GetComponent< CameraControlller >( );
         GameObject machinegun = Instantiate( _machinegun );//��
